@@ -7,6 +7,8 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
+
+    AddressService.new.parse_street_address(@address)
     @address.save
 
     render 'new'
@@ -15,6 +17,6 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.permit(:city, :state)
+    params.permit(:city, :state, :street_address).merge(zip_5: params[:zip_code])
   end
 end

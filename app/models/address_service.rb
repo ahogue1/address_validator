@@ -26,7 +26,11 @@ class AddressService
 
     address.house_number = attributes['AddNum']
     address.street_name = attributes['StName']
-    address.street_type = attributes['StType']
+
+    address_tokens = address.street_address.split
+    street_name_index = address_tokens.index(address.street_name)
+    address.street_type = address_tokens[street_name_index + 1] if street_name_index
+
     address.street_predirection = attributes['StPreDir']
     address.street_postdirection = attributes['StDir']
     address.unit_number = attributes['ExInfo']

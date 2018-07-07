@@ -22,7 +22,7 @@ RSpec.describe AddressesController, :type => :controller do
         expect(assigns(:address).street_name).to eq 'Pennsylvania'
       end
 
-      it 'creates a new address model with the street name saved' do
+      it 'creates a new address model with the street type saved' do
         expect(assigns(:address).street_type).to eq 'Avenue'
       end
 
