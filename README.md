@@ -87,6 +87,7 @@ When submitting the project please answer the following questions:
 
 TODO explain why I use these gems
  - figaro
+ - httparty
 
  2. Where there any specific challenges or struggles you faced along the way?
  3. Is there anything you'd want to improve or optimize if you had more time?

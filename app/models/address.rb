@@ -6,6 +6,7 @@ class Address < ApplicationRecord
     'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT',
     'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY'
   ]
+  attr_accessor :street_address
 
   validates :street_name, :house_number, :city, :state, :zip_5, presence: true
   validates :state, inclusion: { in: STATES, message: "%{value} is not a valid state abbreviation" }
