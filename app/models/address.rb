@@ -86,6 +86,10 @@ class Address < ApplicationRecord
     if state && STATES[state.downcase]
       self.state = STATES[state.downcase]
     end
+
+    if state
+      self.state.upcase!
+    end
   end
 
 end
