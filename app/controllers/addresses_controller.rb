@@ -11,7 +11,10 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
 
     AddressService.new.parse_street_address(@address)
-    @address.save
+
+    if @address.save
+      flash.now[:notice] = "Address is correct and has been saved"
+    end
 
     render 'new'
   end

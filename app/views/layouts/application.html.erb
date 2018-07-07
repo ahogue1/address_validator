@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if notice %>
+      <div class="notice-info fullwidth">
+        <%= notice %>
+      </div>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>
