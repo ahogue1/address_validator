@@ -10,9 +10,9 @@ class AddressService
       query: {
         SingleLine: "#{address.street_address}, #{address.city}, #{address.state} #{address.zip_5}",
         category: 'Address',
-        # token: ENV['arcgis_access_token'],
+        token: ENV['arcgis_access_token'],
         outFields: '*',
-        forStorage: false,
+        forStorage: true,
         f: 'json',
         maxLocations: 1
       }
