@@ -59,8 +59,8 @@ class Address < ApplicationRecord
 
   attr_accessor :street_address
 
-  validates :street_name, :city, :state, :zip_5, presence: true
-  validates :house_number, presence: { message: "not found. Please enter it in street address" }
+  validates :city, :state, :zip_5, presence: true
+  validates :house_number, :street_name, presence: { message: "not found. Enter full street address" }
   validates :state, inclusion: { in: STATES.values, message: "%{value} is not a valid state" }
   validates :zip_5, numericality: true, length: { is: 5 }
 
