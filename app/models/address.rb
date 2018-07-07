@@ -59,8 +59,9 @@ class Address < ApplicationRecord
 
   attr_accessor :street_address
 
-  validates :street_name, :house_number, :city, :state, :zip_5, presence: true
-  validates :state, inclusion: { in: STATES.values, message: "%{value} is not a valid state abbreviation" }
+  validates :street_name, :city, :state, :zip_5, presence: true
+  validates :house_number, presence: { message: "not found. Please enter it in street address" }
+  validates :state, inclusion: { in: STATES.values, message: "%{value} is not a valid state" }
   validates :zip_5, numericality: true, length: { is: 5 }
 
   before_validation :convert_state_to_abbreviation
@@ -71,6 +72,13 @@ class Address < ApplicationRecord
   "#{house_number} #{street_predirection} #{street_name} #{street_type} #{street_postdirection} #{unit_type} #{unit_number}, #{city}, #{state} #{zip_5}".gsub(/\s{2,}/, ' ').gsub(' ,', ',')
   end
 
+  def self.human_attribute_name(attr, options = {})
+    if attr.to_sym == :zip_5
+      return 'Zip code'
+    end
+
+    super
+  end
 
   private
 
