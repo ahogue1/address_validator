@@ -1,25 +1,35 @@
+<h1>Address Validator</h1>
+
+<% if @address.errors.any? %>
+  <ul>
+    <% @address.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag '/addresses', method: :post do %>
-    <div>
-      <%= label_tag :street_address %>
-      <%= text_field_tag :street_address%>
-    </div>
+  <div>
+    <%= label_tag :street_address %>
+    <%= text_field_tag :street_address, @address.street_address %>
+  </div>
 
-    <div>
-      <%= label_tag :city %>
-      <%= text_field_tag :city%>
-    </div>
+  <div>
+    <%= label_tag :city %>
+    <%= text_field_tag :city, @address.city %>
+  </div>
 
-    <div>
-      <%= label_tag :state %>
-      <%= text_field_tag :state%>
-    </div>
+  <div>
+    <%= label_tag :state %>
+    <%= text_field_tag :state, @address.state %>
+  </div>
 
-    <div>
-      <%= label_tag :zip_code %>
-      <%= text_field_tag :zip_code%>
-    </div>
+  <div>
+    <%= label_tag :zip_code %>
+    <%= text_field_tag :zip_code, @address.zip_5 %>
+  </div>
 
-    <div class = "buttons">
-      <%= submit_tag 'Validate Address' %>
-    </div>
+  <div class="buttons">
+    <%= submit_tag 'Validate Address' %>
+  </div>
 <% end %>

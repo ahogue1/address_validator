@@ -3,7 +3,9 @@ class AddressesController < ApplicationController
     render 'new'
   end
 
-  def new; end
+  def new
+    @address = Address.new
+  end
 
   def create
     @address = Address.new(address_params)
