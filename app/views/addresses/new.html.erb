@@ -1,7 +1,7 @@
 <h1>Address Validator</h1>
 
 <% if @address.errors.any? %>
-  <ul>
+  <ul class="errors">
     <% @address.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
@@ -9,27 +9,34 @@
 <% end %>
 
 <%= form_tag '/addresses', method: :post do %>
-  <div>
-    <%= label_tag :street_address %>
-    <%= text_field_tag :street_address, @address.street_address, required: true %>
+  <div class="mb">
+    <div>
+      <%= label_tag :street_address %>
+    </div>
+
+    <div>
+      <%= text_field_tag :street_address, @address.street_address, required: true, class: 'fullwidth' %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :city %>
-    <%= text_field_tag :city, @address.city, required: true %>
-  </div>
+  <div class="columns mb">
+    <div class="col col-40">
+      <%= label_tag :city %>
+      <%= text_field_tag :city, @address.city, required: true %>
+    </div>
 
-  <div>
-    <%= label_tag :state %>
-    <%= text_field_tag :state, @address.state, required: true %>
-  </div>
+    <div class="col col-30">
+      <%= label_tag :state %>
+      <%= text_field_tag :state, @address.state, required: true %>
+    </div>
 
-  <div>
-    <%= label_tag :zip_code %>
-    <%= text_field_tag :zip_code, @address.zip_5, required: true %>
+    <div class="col col-30">
+      <%= label_tag :zip_code %>
+      <%= text_field_tag :zip_code, @address.zip_5, required: true %>
+    </div>
   </div>
 
   <div class="buttons">
-    <%= submit_tag 'Validate Address' %>
+    <%= submit_tag 'Validate Address', class: 'fullwidth button' %>
   </div>
 <% end %>

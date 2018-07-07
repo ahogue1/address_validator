@@ -1,3 +1,75 @@
 // Place all the styles related to the addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input {
+  border: 2px solid grey;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 7px;
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.button {
+  background-color: #64BC55;
+  border-color: #64BC55;
+  color: white;
+  font-size: 16px;
+}
+
+.button:hover {
+    background-color: #53973F;
+    border-color: #53973F;
+  }
+
+.errors {
+  color: #D03538;
+  list-style-type: none;
+  padding: 10px;
+
+  li {
+    margin-top: 7px;
+  }
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.columns {
+  margin: 0 -7px;
+}
+
+.col {
+  margin-bottom: 20px;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 470px) {
+  .columns {
+    display: flex;
+  }
+
+  .col {
+    margin-bottom: 0;
+  }
+
+  .col-40 {
+    width: 40%;
+  }
+
+  .col-30 {
+    width: 30%;
+  }
+}

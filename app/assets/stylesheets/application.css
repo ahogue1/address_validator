@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  margin: 50px auto;
+  width: 400px;
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
+    min-width: 250px;
+  }
+}
