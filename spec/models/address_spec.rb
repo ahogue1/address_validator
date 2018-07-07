@@ -85,4 +85,23 @@ RSpec.describe Address, :type => :model do
       expect(subject).not_to be_valid
     end
   end
+
+  context 'Given state in long form' do
+    subject {
+      described_class.new(
+        house_number: 1000,
+        street_name: 'Claire',
+        street_type: 'Lane',
+        city: 'Northglenn',
+        state: 'Colorado',
+        zip_5: 80234
+      )
+    }
+
+    it 'converts to abbreviation' do
+      subject.valid?
+
+      expect(subject.state).to eq('CO')
+    end
+  end
 end
